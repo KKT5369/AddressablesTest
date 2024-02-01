@@ -88,7 +88,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 72bde214d98366c40803380fcfb94e4e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -801,6 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c50c2763ed4acf9ebacc3c824cbb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageAnim: {fileID: 4151717833567428830}
 --- !u!1 &5486829832969528147
 GameObject:
   m_ObjectHideFlags: 0
