@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
     }
 
     private bool isOpen;
-    private bool isOpen2;
     private void Update()
     {
         Vector2 movement = new Vector2(_direction.x * _moveSpeed, rb.velocity.y);
