@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
         {
             if (isOpen)
             {
-                UIManager.Instance.CloseUI<UITest>();
+                UIManager.Instance.CloseUI<UIStatus>();
             }
             else
             {
-                UIManager.Instance.OpenUI<UITest>();
+                UIManager.Instance.OpenUI<UIStatus>();
             }
             isOpen = !isOpen;
         }

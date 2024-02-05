@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: 21389f83cfd8e2e49a4d1a3e81dde2a4
   m_SerializeEntries:
   - m_GUID: 975377b169ee3024893235d7a4194c92
-    m_Address: UITest
+    m_Address: UIStatus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d5891e99ead09c438c7d69cecd1d030
+    m_Address: UIStagePopup
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
