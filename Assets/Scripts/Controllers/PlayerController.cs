@@ -28,10 +28,11 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
 
     private void Start()
     {
-        UIManager.Instance.OpenUI<UIStagePopup>();
+        
     }
 
     private bool isOpen;
+    private bool isOpen2;
     private void Update()
     {
         Vector2 movement = new Vector2(_direction.x * _moveSpeed, rb.velocity.y);
@@ -53,8 +54,11 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
             }
             isOpen = !isOpen;
         }
-
         
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            UIManager.Instance.OpenUI<UIStagePopup>();
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)

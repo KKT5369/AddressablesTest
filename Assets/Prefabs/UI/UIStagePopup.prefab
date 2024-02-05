@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4367051242954594029}
   - component: {fileID: 2267948657145628871}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: txtStageName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageAnim: {fileID: 7319381704802764842}
+  txtStageName: {fileID: 2267948657145628871}
+  time: 3
 --- !u!1 &7859458037579392083
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,11 +287,11 @@ RectTransform:
   - {fileID: 8279075631670856307}
   m_Father: {fileID: 1615628505855740968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 336, y: 96}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &4205001047741280648
 CanvasRenderer:
   m_ObjectHideFlags: 0
