@@ -22,8 +22,13 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
         _playerInput.Enable();
         _playerInput.Player.Shot.started += (context =>
         {
-            Instantiate(bullet,transform.position,quaternion.identity);
+            Instantiate(bullet, transform.position, quaternion.identity);
         });
+    }
+
+    private void Start()
+    {
+        UIManager.Instance.OpenUI<UIStagePopup>();
     }
 
     private bool isOpen;
