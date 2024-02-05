@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Managers
@@ -8,7 +9,7 @@ namespace Managers
     {
         private Transform _uiParent;
         private Dictionary<string,GameObject> _uiList = new();
-
+        private bool _creatingUI;
 
         private void Awake()
         {
@@ -20,37 +21,55 @@ namespace Managers
 
         public void OpenUI<T>()
         {
-            var openUiName = typeof(T).Name;
-            if (_uiList.TryGetValue(openUiName,out var ui))
+            if (_creatingUI)
+                return;
+            
+            var uiName = GetUIName<T>();
+            if (_uiList.TryGetValue(uiName,out var ui))
             {
                 ui.SetActive(true);
             }
+            else
+            {
+                CreateUI<T>();
+            }
         }
 
-        void CreateUI<T>()
+        async void CreateUI<T>()
         {
-            var openUiName = typeof(T).Name;
-            ResourceLoadManager.Instance.LoadAsset<GameObject>(openUiName, (handle =>
-            {
-                var result = handle.Result as GameObject;
-                var uiGo = Instantiate(result,_uiParent);
-                _uiList.Add(openUiName, uiGo);
-            }));
+            _creatingUI = true;
+            var uiName = GetUIName<T>();
+            var handle = await ResourceLoadManager.Instance.LoadAsset<GameObject>(uiName);
+            var go = handle.Result as GameObject;
+            var uiGo = Instantiate(go,_uiParent);
+            _uiList.Add(uiName,uiGo);
+            _creatingUI = false;
         }
 
 
         public void CloseUI<T>()
         {
-            var closeUiName = typeof(T).Name;
-            if (_uiList.TryGetValue(closeUiName,out var ui))
+            var uiName = GetUIName<T>();
+            if (_uiList.TryGetValue(uiName,out var ui))
             {
                 ui.SetActive(false);
             }
         }
 
-        public void GetUI<T>()
+        public T GetUI<T>()
         {
-            
+            var uiName = GetUIName<T>();
+            if (_uiList.TryGetValue(uiName,out var ui))
+            {
+                return ui.GetComponent<T>();
+            }
+
+            return default;
+        }
+
+        string GetUIName<T>()
+        {
+            return typeof(T).Name;
         }
 
         public void ClearUI()

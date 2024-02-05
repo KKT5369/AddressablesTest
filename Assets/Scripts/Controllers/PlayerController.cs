@@ -23,15 +23,10 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
         _playerInput.Player.Shot.started += (context =>
         {
             Instantiate(bullet,transform.position,quaternion.identity);
-            UIManager.Instance.ClearUI();
         });
     }
 
-    private void Start()
-    {
-        
-    }
-
+    private bool isOpen;
     private void Update()
     {
         Vector2 movement = new Vector2(_direction.x * _moveSpeed, rb.velocity.y);
@@ -40,6 +35,21 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
         {
             rb.velocity = new Vector2(rb.velocity.x, _jumpForce);
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (isOpen)
+            {
+                UIManager.Instance.CloseUI<UITest>();
+            }
+            else
+            {
+                UIManager.Instance.OpenUI<UITest>();
+            }
+            isOpen = !isOpen;
+        }
+
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
