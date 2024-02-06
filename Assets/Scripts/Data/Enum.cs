@@ -1,7 +1,7 @@
 ﻿namespace Data
 {
-    public enum MyEnum
+    public enum GameItem
     {
-        
+        Food,
     }
 }

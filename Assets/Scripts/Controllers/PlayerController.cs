@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInput = InputScripts.PlayerInput;
 
-public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayerActions
+public class PlayerController : MonoBehaviour , PlayerInput.IPlayerActions
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject bullet;
@@ -24,10 +24,6 @@ public class PlayerController : MonoBehaviour , InputScripts.PlayerInput.IPlayer
         {
             Instantiate(bullet, transform.position, quaternion.identity);
         });
-    }
-
-    private void Start()
-    {
         
     }
 

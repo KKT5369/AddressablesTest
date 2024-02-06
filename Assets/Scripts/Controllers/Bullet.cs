@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     private Vector3 mousePosition;
-    private float speed = 5f;
+    private float speed = 20f;
     
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
         var dir = mousePosition - transform.position;
         
-        rb.velocity = dir * speed;
+        rb.velocity = dir.normalized * speed;
         
         Destroy(gameObject, 2f);
     }
